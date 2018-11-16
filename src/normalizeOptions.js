@@ -134,7 +134,7 @@ function normalizeTransformedFunctions(optsTransformFunctions) {
 
 export default createSelector(
   // The currentFile should have an extension; otherwise it's considered a special value
-  currentFile => (currentFile.includes('.') ? path.dirname(currentFile) : currentFile),
+  currentFile => currentFile && (currentFile.includes('.') ? path.dirname(currentFile) : currentFile),
   (_, opts) => opts,
   (currentFile, opts) => {
     const cwd = normalizeCwd(opts.cwd, currentFile);

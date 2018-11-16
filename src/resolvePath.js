@@ -91,7 +91,7 @@ export default function resolvePath(sourcePath, currentFile, opts) {
 
   // File param is a relative path from the environment current working directory
   // (not from cwd param)
-  const absoluteCurrentFile = path.resolve(currentFile);
+  const absoluteCurrentFile = currentFile ? path.resolve(currentFile) : undefined;
   let resolvedPath = null;
 
   resolvers.some((resolver) => {
